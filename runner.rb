@@ -1,4 +1,5 @@
 # runner.rb
+require 'pry'
 require './lib/stat_tracker'
 
 game_path = './data/games.csv'
@@ -12,5 +13,3 @@ locations = {
 }
 
 stat_tracker = StatTracker.from_csv(locations)
-
-require 'pry'; binding.pry

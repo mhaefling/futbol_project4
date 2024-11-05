@@ -18,11 +18,11 @@ RSpec.describe Game do
       expect(@game.season).to eq(20122013)
     end
 
-    it 'has a away_team' do
+    it 'has a away_team id' do
       expect(@game.away_team).to eq(3)
     end
 
-    it 'has a home_team' do
+    it 'has a home_team id' do
       expect(@game.home_team).to eq(6)
     end
 
@@ -34,4 +34,4 @@ RSpec.describe Game do
       expect(@game.home_goals).to eq(3)
     end
   end
-end
+ end

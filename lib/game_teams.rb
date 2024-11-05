@@ -1,7 +1,6 @@
 class GameTeams
     attr_reader :game_id,
-                :away_team,
-                :home_team,
+                :team_id,
                 :hoa,
                 :results,
                 :head_coach,
@@ -9,15 +8,14 @@ class GameTeams
                 :shots,
                 :tackles
 
-    def initialize(game_id, away_team, home_team, hoa, results, head_coach, goals, shots, tackles)
+    def initialize(game_id, row_data)
         @game_id = game_id
-        @away_team = away_team
-        @home_team = home_team
-        @hoa = hoa
-        @results = results
-        @head_coach = head_coach
-        @goals = goals
-        @shots = shots
-        @tackles = tackles
+        @team_id = row_data[:team_id]
+        @hoa = row_data[:hoa]
+        @results = row_data[:results]
+        @head_coach = row_data[:head_coach]
+        @goals = row_data[:goals]
+        @shots = row_data[:shots]
+        @tackles = row_data[:tackles]
     end
 end

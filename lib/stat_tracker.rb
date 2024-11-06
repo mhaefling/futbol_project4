@@ -1,7 +1,10 @@
 require 'csv'
 require './spec/spec_helper'
+require './lib/game_statable'
 
 class StatTracker
+    include  GameStatable
+
     attr_reader :teams, 
                 :games, 
                 :game_teams
@@ -17,7 +20,6 @@ class StatTracker
         stat_tracker.load_teams_data(locations[:teams])
         stat_tracker.load_games_data(locations[:games])
         stat_tracker.load_game_teams_data(locations[:game_teams])
-        binding.pry
     end
 
     def load_teams_data(location)

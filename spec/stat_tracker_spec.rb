@@ -23,7 +23,9 @@ RSpec.describe StatTracker do
             }
             
             stat_tracker = StatTracker.from_csv(locations)
-            expect(stat_tracker).to be true
+            expect(stat_tracker.teams).to_not be_empty
+            expect(stat_tracker.games).to_not be_empty
+            expect(stat_tracker.game_teams).to_not be_empty
         end
     end
 end

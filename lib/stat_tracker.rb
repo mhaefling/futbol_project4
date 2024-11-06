@@ -1,5 +1,8 @@
 require 'csv'
-require './spec/spec_helper'
+require_relative './game'
+require_relative './team'
+require_relative './game_teams'
+require_relative './game_statable'
 
 class StatTracker
     attr_reader :teams, 
@@ -13,7 +16,7 @@ class StatTracker
     end
 
     def self.from_csv(locations)
-        stat_tracker = StatTracker.new
+        stat_tracker = new
         stat_tracker.load_teams_data(locations[:teams])
         stat_tracker.load_games_data(locations[:games])
         stat_tracker.load_game_teams_data(locations[:game_teams])

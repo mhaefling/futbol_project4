@@ -1,6 +1,7 @@
 require 'rspec'
+require 'pry'
 require './lib/stat_tracker'
 require './lib/game'
 require './lib/team'
 require './lib/game_teams'
-require 'pry'
+require './lib/game_statable'

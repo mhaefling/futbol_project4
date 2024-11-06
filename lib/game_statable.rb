@@ -5,25 +5,26 @@ module GameStatable
     # concatenated to the end of the game_id
     # => Integer: 7441
     def total_game_count
-        game_teams.count / 2
+        # binding.pry
+        @game_teams.count / 2
     end
 
-    # Counts all the key values in the game_teams hash compring the hoa value to confirm
+    # Counts all the key values in the game_teams hash comparing the hoa value to confirm
     # it was a home game, and the result value to confirm it was a win and then converts the total
     # count to a float.
     # => Float: 3237.0
     def total_home_wins
-        home_games = game_teams.count do |game|
+        home_games = @game_teams.count do |game|
             game[1].hoa == "home" && game[1].result == "WIN"
         end.to_f
     end
 
-    # Counts all the key values in the game_teams hash compring the hoa value to confirm
+    # Counts all the key values in the game_teams hash comparing the hoa value to confirm
     # it was a away game, and the result value to confirm it was a win and then converts the total
     # count to a float.
     # => Float: 2687.0
     def total_visitor_wins
-        visitor_games = game_teams.count do |game|
+        visitor_games = @game_teams.count do |game|
             game[1].hoa == "away" && game[1].result == "WIN"
         end.to_f
     end

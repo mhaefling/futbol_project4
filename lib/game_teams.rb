@@ -18,4 +18,8 @@ class GameTeams
         @shots = row_data[:shots]
         @tackles = row_data[:tackles]
     end
+
+    def game_team_id
+            "#{@game_id}#{@team_id}"
+    end
 end

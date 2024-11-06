@@ -2,7 +2,10 @@ require 'csv'
 require './spec/spec_helper'
 
 class StatTracker
-    attr_reader :teams, :games, :game_teams
+    attr_reader :teams, 
+                :games, 
+                :game_teams
+                
     def initialize
         @teams = {}
         @games = {}
@@ -29,5 +32,7 @@ class StatTracker
             @games[new_game.game_id] = [new_game.season, new_game.away_team, new_game.home_team, new_game.away_goals, new_game.home_goals]
         end
     end
+
+    def 
 end
 

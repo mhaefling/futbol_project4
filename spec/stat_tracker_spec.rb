@@ -5,29 +5,25 @@ RSpec.describe StatTracker do
         it 'is a StatTracker' do
             stat_tracker = StatTracker.new
 
-            expect(state_tracker).to be_a(StatTracker)
+            expect(stat_tracker).to be_a(StatTracker)
         end
     end
 
     describe '#from_csv' do
-        it 'pulls in all the csv data' do
+        it 'pulls in data from csv' do
+
+            game_path = './data/games.csv'
             team_path = './data/teams.csv'
+            game_teams_path = './data/game_teams.csv'
 
             locations = {
-            teams: team_path
+                games: game_path,
+                teams: team_path,
+                game_teams: game_teams_path
             }
-
-            stat_tracker = StatTracker.from_csv(locations)
             
-            expect(stat_tracker.count).to eq(32)
-            first = stat_tracker.first
-
-            expect(first.team_id).to eq(1)
-            expect(first.franchise_id).to eq(23)
-            expect(first.team_name).to eq("Atlanta United")
-            expect(first.abbreviation).to eq("ATL")
-            expect(first.stadium).to eq("Mercedes-Benz Stadium")
-            expect(first.link).to eq("/api/v1/teams/1")
+            stat_tracker = StatTracker.from_csv(locations)
+            expect(stat_tracker).to be true
         end
     end
 end

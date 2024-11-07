@@ -50,5 +50,9 @@ class StatTracker
             @game_teams[new_game_team.game_team_id] = new_game_team
         end
     end
+
+    def inspect
+        "#<#{self.class.name}:#{self.object_id}"
+    end
 end
 

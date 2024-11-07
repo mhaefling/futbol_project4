@@ -59,5 +59,13 @@ module LeagueStatable
         end
         return lowest.name
     end
+
+    def lowest_scoring_home_team
+        lowest = @teams.values.min_by do |team|
+            # require 'pry'; binding.pry
+            average_score_hoa(team.team_id, "home")
+        end
+        return lowest.name
+    end
  
 end

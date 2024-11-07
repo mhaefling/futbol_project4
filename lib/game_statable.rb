@@ -12,6 +12,12 @@ module GameStatable
         total_score(highest_total_score[1])
     end    
 
+    def lowest_total_score
+        lowest_total_score  = @games.min_by do |id, data|
+            total_score(data)
+        end
+        total_score(lowest_total_score[1])
+    end 
 
     # Counts all of the keys in the game_teams hash and divides them by 2
     # Divides them by two because each game is entered twice with the team id 

@@ -53,6 +53,22 @@ RSpec.describe LeagueStatable do
         end
     end
 
+    describe '#sum_of_team_scores_hoa' do
+        it 'returns the sum of the scores a team made while away' do
+            team_id = '27'
+            hoa = 'away'
+
+            expect(@stat_tracker.sum_of_team_scores_hoa(team_id, hoa)).to eq(120)
+        end
+
+        it 'returns the sum of the scores a team made while home' do
+            team_id = '27'
+            hoa = 'home'
+
+            expect(@stat_tracker.sum_of_team_scores_hoa(team_id, hoa)).to eq(143)
+        end
+    end
+
 
     describe '#lowest_scoring_visitor' do
         it 'returns lowest scoring visitor in league' do

@@ -37,6 +37,16 @@ module LeagueStatable
         total
     end
 
-   
- 
+    def sum_of_team_scores_hoa(team_id, hoa)
+        sum = 0
+       
+        @game_teams.each do |id, game_team|
+            if game_team.team_id == team_id && game_team.hoa == hoa
+                sum += game_team.goals
+            end
+        end
+        sum
+    end
+
+    
 end

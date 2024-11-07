@@ -49,18 +49,13 @@ module GameStatable
 
     # iterates over the gam
     def count_of_games_by_season
+        season_counts = {} 
+        
+        games.each do |game_id, game|
+            season = game.season
 
-        season_counts = {}  
-        games.each do |season|
-            season = games.season  
-            if season_counts[season]
-            season_counts[season] += 1  
-            else
-            season_counts[season] = 1   
-            end
+            season_counts[season] = season_counts.fetch(season, 0) + 1
         end
-        
         season_counts
-        
     end
 end

@@ -1,5 +1,12 @@
 module GameStatable
 
+
+    def total_score(game_data)
+        return game_data.away_goals + game_data.home_goals
+    end
+
+   
+
     # Counts all of the keys in the game_teams hash and divides them by 2
     # Divides them by two because each game is entered twice with the team id 
     # concatenated to the end of the game_id

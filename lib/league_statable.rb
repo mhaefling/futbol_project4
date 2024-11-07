@@ -52,5 +52,12 @@ module LeagueStatable
         return (sum_of_team_scores_hoa(team_id, hoa).to_f / total_games_per_team_hoa(team_id, hoa).to_f).round(5)
     end
 
+    def lowest_scoring_visitor
+        lowest = @teams.values.min_by do |team|
+            # require 'pry'; binding.pry
+            average_score_hoa(team.team_id, "away")
+        end
+        return lowest.name
+    end
  
 end

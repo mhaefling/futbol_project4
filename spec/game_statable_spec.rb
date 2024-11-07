@@ -15,6 +15,27 @@ RSpec.describe GameStatable do
         @stat_tracker = StatTracker.from_csv(locations)
         @stat_tracker.extend(GameStatable)
     end
+
+    describe '#total_score' do
+        it 'returns the sum score of winning and lossing teams' do
+            game_data = @games["2012030221"][1]
+
+            expect(@stat_tracker.total_score(game_data)).to eq(5)
+        end
+    end
+
+    describe "#highest_total_score" do
+        it 'returns highest total score of teams' do
+            expect(@stat_tracker.highest_total_score).to eq(11)
+        end
+    end
+
+    describe "#lowest_total_score" do
+        it 'returns the lowest total score of teams' do
+            expect(@stat_tracker.lowest_total_score).to eq(0)
+        end
+    end
+
     describe '#total_game_count' do
         it 'returns the total amount of games' do
 

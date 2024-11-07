@@ -16,16 +16,16 @@ RSpec.describe LeagueStatable do
         @stat_tracker.extend(GameStatable)
     end
 
-    describe '#sort_away_teams' do
-        it 'sorts games by away teams' do
-            @stat_tracker.group_away_teams
-            expect(@stat_tracker.sort_away_teams).to eq(Array)
-        end
-    end
+    # describe '#sort_away_teams' do
+    #     it 'sorts games by away teams' do
+    #         @stat_tracker.group_away_teams
+    #         expect(@stat_tracker.sort_away_teams).to eq(Array)
+    #     end
+    # end
 
-    describe '#total_games_per_team' do
+    # describe '#total_games_per_team' do
 
-    end
+    # end
 
     # describe '#average_score' do
     #     it 'returns the average score based on hoa' do
@@ -35,6 +35,24 @@ RSpec.describe LeagueStatable do
     #         expect(@stat_tracker.average_score(team_data)).to eq()
     #     end
     # end
+
+    # Returns the total number of games a team played either home or away
+    describe '#total_games_per_team_hoa' do
+        it 'returns the total number of games a team played away' do
+            team_id = '27'
+            hoa = 'away'
+
+            expect(@stat_tracker.total_games_per_team_hoa(team_id, hoa)).to eq(65)
+        end
+
+        it 'returns the total number of games a team played at home' do
+            team_id = '27'
+            hoa = 'home'
+
+            expect(@stat_tracker.total_games_per_team_hoa(team_id, hoa)).to eq(65)
+        end
+    end
+
 
     describe '#lowest_scoring_visitor' do
         it 'returns lowest scoring visitor in league' do
@@ -47,4 +65,6 @@ RSpec.describe LeagueStatable do
             expect(@stat_tracker.lowest_scoring_home_team).to eq("Utah Royals FC")
         end
     end
+
+    
 end

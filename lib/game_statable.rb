@@ -1,10 +1,14 @@
 module GameStatable
 
-
+    # Helper Method
+    ## Returns the sum of home and away teams' goals
     def total_score(game_data)
         return game_data.away_goals + game_data.home_goals
     end
 
+    # Iterates through games hash looking for the game with the highest totals
+    # returned from inject game data into total_score helper method 
+    # and then returns the highest number of scores of a game
     def highest_total_score
         highest_total_score  = @games.max_by do |id, data|
             total_score(data)
@@ -12,6 +16,9 @@ module GameStatable
         total_score(highest_total_score[1])
     end    
 
+    # Iterates through games hash looking for the game with the lowest totals
+    # returned from inject game data into total_score helper method 
+    # and then returns the lowest number of scores of a game
     def lowest_total_score
         lowest_total_score  = @games.min_by do |id, data|
             total_score(data)

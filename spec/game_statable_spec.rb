@@ -36,6 +36,13 @@ RSpec.describe GameStatable do
         end
     end
 
+    describe '#total_ties' do
+        it 'returns the total amount of tie games' do
+
+            expect(@stat_tracker.total_ties).to eq(1517.0)
+        end
+    end
+
 
     describe '#percentage_home_wins' do
         it 'calculates the percentage of home wins' do
@@ -47,6 +54,13 @@ RSpec.describe GameStatable do
         it 'calculates the percentage of away wins' do
 
             expect(@stat_tracker.percentage_visitor_wins).to eq(0.36)
+        end
+    end
+
+    describe '#percentage_ties' do
+        it 'calculates the percentage of tie games' do
+
+            expect(@stat_tracker.percentage_ties).to eq(0.20)
         end
     end
 end

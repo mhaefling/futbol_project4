@@ -23,7 +23,18 @@ RSpec.describe LeagueStatable do
         end
     end
 
-    
+    describe '#total_games_per_team' do
+
+    end
+
+    # describe '#average_score' do
+    #     it 'returns the average score based on hoa' do
+    #         team_data = "3"
+
+
+    #         expect(@stat_tracker.average_score(team_data)).to eq()
+    #     end
+    # end
 
     describe '#lowest_scoring_visitor' do
         it 'returns lowest scoring visitor in league' do
@@ -33,7 +44,7 @@ RSpec.describe LeagueStatable do
 
     describe '#lowest_scoring_home_team' do
         it 'returns lowest scoring visitor in league' do
-            expect(@stat_tracker.lowest_scoring_home_town).to eq("Utah Royals FC")
+            expect(@stat_tracker.lowest_scoring_home_team).to eq("Utah Royals FC")
         end
     end
 end

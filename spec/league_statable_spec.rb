@@ -85,6 +85,16 @@ RSpec.describe LeagueStatable do
         end
     end
 
+    describe "#lowest_scoring_hoa" do
+        it 'returns the away team with the lowest average score' do
+            expect(@stat_tracker.lowest_scoring_hoa("away")).to eq("San Jose Earthquakes")
+        end
+
+        it 'returns the home team with the lowest average score' do 
+            expect(@stat_tracker.lowest_scoring_hoa("home")).to eq("Utah Royals FC")
+        end
+    end
+
     describe '#lowest_scoring_visitor' do
         it 'returns lowest scoring visitor in league' do
             expect(@stat_tracker.lowest_scoring_visitor).to eq("San Jose Earthquakes")

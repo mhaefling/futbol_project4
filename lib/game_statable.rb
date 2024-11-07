@@ -46,4 +46,21 @@ module GameStatable
         visitor_wins_percent = total_visitor_wins / total_game_count
         visitor_wins_percent.round(2)
     end
+
+    # iterates over the gam
+    def count_of_games_by_season
+
+        season_counts = {}  
+        games.each do |season|
+            season = games.season  
+            if season_counts[season]
+            season_counts[season] += 1  
+            else
+            season_counts[season] = 1   
+            end
+        end
+        
+        season_counts
+        
+    end
 end

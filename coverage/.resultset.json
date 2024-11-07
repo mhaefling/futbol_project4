@@ -1,7 +1,11 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< Updated upstream
       "/Users/mhaefling/Turing/Mod1/project4/futbol/lib/stat_tracker.rb": {
+=======
+      "/Users/jacksonbickler/Mod1_projects/futbol_jackson/futbol/lib/stat_tracker.rb": {
+>>>>>>> Stashed changes
         "lines": [
           1,
           1,
@@ -17,6 +21,7 @@
           null,
           null,
           1,
+<<<<<<< Updated upstream
           5,
           5,
           5,
@@ -35,27 +40,63 @@
           5,
           160,
           160,
+=======
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          32,
+          32,
+>>>>>>> Stashed changes
           null,
           null,
           null,
           1,
+<<<<<<< Updated upstream
           5,
           37205,
           37205,
+=======
+          1,
+          7441,
+          7441,
+>>>>>>> Stashed changes
           null,
           null,
           null,
           1,
+<<<<<<< Updated upstream
           5,
           74410,
           74410,
+=======
+          1,
+          14882,
+          14882,
+>>>>>>> Stashed changes
           null,
           null,
           null,
           null
         ]
       },
+<<<<<<< Updated upstream
       "/Users/mhaefling/Turing/Mod1/project4/futbol/lib/game.rb": {
+=======
+      "/Users/jacksonbickler/Mod1_projects/futbol_jackson/futbol/lib/game.rb": {
+>>>>>>> Stashed changes
         "lines": [
           1,
           1,
@@ -66,30 +107,52 @@
           null,
           null,
           1,
+<<<<<<< Updated upstream
           37205,
           37205,
           37205,
           37205,
           37205,
           37205,
+=======
+          7441,
+          7441,
+          7441,
+          7441,
+          7441,
+          7441,
+>>>>>>> Stashed changes
           null,
           null
         ]
       },
+<<<<<<< Updated upstream
       "/Users/mhaefling/Turing/Mod1/project4/futbol/lib/team.rb": {
+=======
+      "/Users/jacksonbickler/Mod1_projects/futbol_jackson/futbol/lib/team.rb": {
+>>>>>>> Stashed changes
         "lines": [
           1,
           1,
           null,
           null,
           1,
+<<<<<<< Updated upstream
           160,
           160,
+=======
+          32,
+          32,
+>>>>>>> Stashed changes
           null,
           null
         ]
       },
+<<<<<<< Updated upstream
       "/Users/mhaefling/Turing/Mod1/project4/futbol/lib/game_teams.rb": {
+=======
+      "/Users/jacksonbickler/Mod1_projects/futbol_jackson/futbol/lib/game_teams.rb": {
+>>>>>>> Stashed changes
         "lines": [
           1,
           1,
@@ -102,6 +165,7 @@
           null,
           null,
           1,
+<<<<<<< Updated upstream
           74410,
           74410,
           74410,
@@ -110,6 +174,30 @@
           74410,
           74410,
           74410,
+=======
+          14882,
+          14882,
+          14882,
+          14882,
+          14882,
+          14882,
+          14882,
+          14882,
+          null,
+          null,
+          1,
+          14882,
+          null,
+          null
+        ]
+      },
+      "/Users/jacksonbickler/Mod1_projects/futbol_jackson/futbol/lib/game_statable.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+>>>>>>> Stashed changes
           null,
           null,
           1,
@@ -168,10 +256,69 @@
           1,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
           null
         ]
       }
     },
+<<<<<<< Updated upstream
     "timestamp": 1730933692
+=======
+    "timestamp": 1730944134
+>>>>>>> Stashed changes
   }
 }

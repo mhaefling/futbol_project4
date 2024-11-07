@@ -5,7 +5,13 @@ module GameStatable
         return game_data.away_goals + game_data.home_goals
     end
 
-   
+    def highest_total_score
+        highest_total_score  = @games.max_by do |id, data|
+            total_score(data)
+        end
+        total_score(highest_total_score[1])
+    end    
+
 
     # Counts all of the keys in the game_teams hash and divides them by 2
     # Divides them by two because each game is entered twice with the team id 

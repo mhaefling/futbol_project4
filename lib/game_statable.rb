@@ -59,10 +59,24 @@ module GameStatable
         visitor_wins_percent.round(2)
     end
 
+
+    # iterates over the gam
+    def count_of_games_by_season
+        season_counts = {} 
+        
+        games.each do |game_id, game|
+            season = game.season
+
+            season_counts[season] = season_counts.fetch(season, 0) + 1
+        end
+        season_counts
+    end
+
     # Determines the percent of tie games by taking the result of the total_ties method (1517.0) and dividing it by the result
     # of theh total_game_count method (7441) and then rounding the return value down to 2 decimal places.
     def percentage_ties
         ties_percent = total_ties / total_game_count
         ties_percent.round(2)
+
     end
 end

@@ -29,32 +29,14 @@ module LeagueStatable
     #     binding.pry
     # end
 
-    def total_games_per_team(team_id, hoa)
-        total = @game_teams[1].count do |game_team|
+    def total_games_per_team_hoa(team_id, hoa)
+        
+        total = @game_teams.count do |id, game_team|
             game_team.team_id == team_id && game_team.hoa == hoa
         end
         total
     end
 
-    def sum_of_scores(team_id, hoa)
-        sum = 0
-        @game_teams[1].each do |game_team|
-            if game_team.team_id == team_id && game_team.hoa == hoa
-                sum += game_team.goals
-            end
-        end
-        sum
-    end
-
-    def average_score(game_team_data, hoa)
-        return sum_of_scores(game_team_data.team_id, hoa) / total_games_per_team(game_team_data.team_id, hoa) 
-    end
-
-    def lowest_scoring_visitor
-        return @game_teams.min_by do |game_team|
-            average_score(game_team[1], "away")
-        end
-    end
-
-    
+   
+ 
 end

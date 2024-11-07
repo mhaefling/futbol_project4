@@ -59,14 +59,16 @@ RSpec.describe GameStatable do
 
 
     describe '#count_of_games_by_season' do
-    expected = {
-        "20122013"=>806,
-        "20162017"=>1317,
-        "20142015"=>1319,
-        "20152016"=>1321,
-        "20132014"=>1323,
-        "20172018"=>1355
-      }
+        expected = {
+            "20122013"=>806,
+            "20162017"=>1317,
+            "20142015"=>1319,
+            "20152016"=>1321,
+            "20132014"=>1323,
+            "20172018"=>1355
+        }
+
+    end
 
     describe '#percentage_ties' do
         it 'calculates the percentage of tie games' do

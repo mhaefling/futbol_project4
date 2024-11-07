@@ -18,7 +18,7 @@ RSpec.describe GameStatable do
 
     describe '#total_score' do
         it 'returns the sum score of winning and lossing teams' do
-            game_data = @games["2012030221"][1]
+            game_data = @stat_tracker.games["2012030221"]
 
             expect(@stat_tracker.total_score(game_data)).to eq(5)
         end

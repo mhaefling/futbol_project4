@@ -48,5 +48,9 @@ module LeagueStatable
         sum
     end
 
-    
+    def average_score_hoa(team_id, hoa)
+        return (sum_of_team_scores_hoa(team_id, hoa).to_f / total_games_per_team_hoa(team_id, hoa).to_f).round(5)
+    end
+
+ 
 end

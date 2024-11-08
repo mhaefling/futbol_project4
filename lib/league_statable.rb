@@ -21,16 +21,16 @@ module LeagueStatable
         return grouped_goals
     end
 
-    # def games_per_team
-    #     team_count = Hash.new(0)
-    #     @games.each do |game|
-    #         team_count[game[1].away_team] += 1
-    #     end
-    #     binding.pry
-    # end
+    def games_per_team
+        team_count = Hash.new(0)
+        @games.each do |game|
+            team_count[game[1].away_team] += 1
+        end
+        binding.pry
+    end
 
   # Method to determine count of unique teams in a CSV file
-  def self.count_of_teams(game_teams_path)
+    def count_of_teams(game_teams_path)
         team_ids = []
        
 
@@ -40,6 +40,5 @@ module LeagueStatable
     unique_team_count = team_ids.uniq.count
 # require 'pry' ; binding.pry
     unique_team_count.to_i
-    
     end
 end

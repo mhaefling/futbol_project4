@@ -48,7 +48,7 @@ module SeasonStatable
         @teams[team_id].name
     end
 
-    # Returns an array of game_id's for the given season
+    # Helper method, returns an array of game_id's for the given season
     def games_by_season(season)
         season_games = []
         @games.find_all do |game|
@@ -59,7 +59,7 @@ module SeasonStatable
         return season_games
     end
     
-    # Returns team_id with their shots and goals for the provided season
+    # Helper method, returns a hash with the team_id as keys and their total shots and goals for the provided season as an array value.
     def team_season_shot_goals(season_games)
         team_shot_goal_count = Hash.new do |team_shot_goal_count, team_id| 
             team_shot_goal_count[team_id] = [0, 0]
@@ -75,18 +75,34 @@ module SeasonStatable
         return team_shot_goal_count
     end
 
-    def best_team_ratio(team_shot_goal_count)
-        team_ratio = Hash.new(0)
+    # Helper method, returns a hash with the team_id as the keys with their shots to goals ratio percentage.
+    def team_ratios(team_shot_goal_count)
+        team_ratios = Hash.new(0)
         team_shot_goal_count.each do |team|
-            team_ratio[team[0]] = team[1][0].to_f / team[1][1].to_f
+            team_ratios[team[0]] = team[1][0].to_f / team[1][1].to_f
         end
-        team_ratio.max_by do |team|
+        return team_ratios
+    end
+
+    def best_ratio(team_ratios)
+        team_ratios.max_by do |team|
+            team[1]
+        end[0]
+    end
+
+    def worst_ratio(team_ratios)
+        team_ratios.min_by do |team|
             team[1]
         end[0]
     end
 
     def most_accurate_team(season)
-        team_id = best_team_ratio(team_season_shot_goals(games_by_season(season)))
+        team_id = best_ratio(team_ratios(team_season_shot_goals(games_by_season(season))))
+        return team_name_from_id(team_id)
+    end
+
+    def least_accurate_team(season)
+        team_id = worst_ratio(team_ratios(team_season_shot_goals(games_by_season(season))))
         return team_name_from_id(team_id)
     end
 end

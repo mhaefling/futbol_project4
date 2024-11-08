@@ -85,6 +85,16 @@ RSpec.describe LeagueStatable do
         end
     end
 
+    describe "#highest_scoring_hoa" do
+        it 'returns the away team with the highest average score' do
+            expect(@stat_tracker.highest_scoring_hoa("away")).to eq("FC Dallas")
+        end
+
+        it 'returns the home team with the lowest average score' do 
+            expect(@stat_tracker.highest_scoring_hoa("home")).to eq("Reign FC")
+        end
+    end
+
     describe "#lowest_scoring_hoa" do
         it 'returns the away team with the lowest average score' do
             expect(@stat_tracker.lowest_scoring_hoa("away")).to eq("San Jose Earthquakes")
@@ -101,7 +111,7 @@ RSpec.describe LeagueStatable do
         end
     end
 
-    describe '#highest_scoring_visitor' do
+    describe '#highest_scoring_home_team' do
         it "#highest_scoring_home_team" do
             expect(@stat_tracker.highest_scoring_home_team).to eq "Reign FC"
         end
@@ -118,21 +128,14 @@ RSpec.describe LeagueStatable do
             expect(@stat_tracker.lowest_scoring_home_team).to eq("Utah Royals FC")
         end
     end
-    
-    # describe '#sort_away_teams' do
-    #     it 'sorts games by away teams' do
-    #         @stat_tracker.group_away_teams
-    #         expect(@stat_tracker.sort_away_teams).to eq(Array)
+
+    # describe '#count_of_teams' do
+    #     it 'returns the count of teams from the game_teams.csv file' do
+    #         game_teams_path = './data/game_teams.csv'
+
+    #         unique_team_count = LeagueStatable.count_of_teams(game_teams_path)
+
+    #         expect(unique_team_count).to be > 0 
     #     end
     # end
-
-    describe '#count_of_teams' do
-        xit 'returns the count of teams from the game_teams.csv file' do
-            game_teams_path = './data/game_teams.csv'
-
-            unique_team_count = LeagueStatable.count_of_teams(game_teams_path)
-
-            expect(unique_team_count).to be > 0 
-        end
-    end
 end

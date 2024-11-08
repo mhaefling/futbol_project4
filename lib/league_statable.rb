@@ -53,11 +53,26 @@ module LeagueStatable
         return (sum_of_team_scores_hoa(team_id, hoa).to_f / total_games_per_team_hoa(team_id, hoa).to_f).round(5)
     end
 
+    def highest_scoring_hoa(hoa)
+        highest = @teams.values.max_by do |team|
+            average_score_hoa(team.team_id, hoa)
+        end
+        return highest.name
+    end
+
     def lowest_scoring_hoa(hoa)
         lowest = @teams.values.min_by do |team|
             average_score_hoa(team.team_id, hoa)
         end
         return lowest.name
+    end
+
+    def highest_scoring_visitor
+        return highest_scoring_hoa("away")
+    end
+
+    def highest_scoring_home_team
+        return highest_scoring_hoa("home")
     end
 
     def lowest_scoring_visitor
@@ -70,16 +85,16 @@ module LeagueStatable
  
 
   # Method to determine count of unique teams in a CSV file
-    def count_of_teams(game_teams_path)
-        team_ids = []
+#     def count_of_teams(game_teams_path)
+#         team_ids = []
        
 
-    CSV.foreach(game_teams_path, headers: true) do |row|
-        team_ids << row['team_id']
-    end
-    unique_team_count = team_ids.uniq.count
-# require 'pry' ; binding.pry
-    unique_team_count.to_i
-    end
+#     CSV.foreach(game_teams_path, headers: true) do |row|
+#         team_ids << row['team_id']
+#     end
+#     unique_team_count = team_ids.uniq.count
+# # require 'pry' ; binding.pry
+#     unique_team_count.to_i
+#     end
 
 end

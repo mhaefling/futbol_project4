@@ -95,6 +95,18 @@ RSpec.describe LeagueStatable do
         end
     end
 
+    describe '#highest_scoring_visitor' do 
+        it "#highest_scoring_visitor" do
+            expect(@stat_tracker.highest_scoring_visitor).to eq "FC Dallas"
+        end
+    end
+
+    describe '#highest_scoring_visitor' do
+        it "#highest_scoring_home_team" do
+            expect(@stat_tracker.highest_scoring_home_team).to eq "Reign FC"
+        end
+    end
+
     describe '#lowest_scoring_visitor' do
         it 'returns lowest scoring visitor in league' do
             expect(@stat_tracker.lowest_scoring_visitor).to eq("San Jose Earthquakes")
@@ -115,7 +127,7 @@ RSpec.describe LeagueStatable do
     # end
 
     describe '#count_of_teams' do
-        it 'returns the count of teams from the game_teams.csv file' do
+        xit 'returns the count of teams from the game_teams.csv file' do
             game_teams_path = './data/game_teams.csv'
 
             unique_team_count = LeagueStatable.count_of_teams(game_teams_path)

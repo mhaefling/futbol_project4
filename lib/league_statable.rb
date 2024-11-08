@@ -1,26 +1,5 @@
 module LeagueStatable
 
-    # def goals_by_away_team
-    #     # grouped_goals = @games.each_with_object(Hash.new(0)) do |game, team|
-    #     #     team[game[1].away_team] += game[1].away_goals
-    #     # end
-    #     grouped_goals = {}
-    #     @games.each do |game_id, game_data|
-
-    #         if grouped_goals.keys.include?(game_data.away_team)
-    #             total_away_goals = grouped_goals[game_data.away_team][1][0]
-    #             num_away_games = grouped_goals[game_data.away_team][1][1]
-    #             total_away_goals += game_data.away_goals
-    #             num_away_games += 1
-    #         else
-    #             total_away_goals = game_data.away_goals
-    #             num_away_games = 1
-    #             grouped_goals[game_data.away_team] = [total_away_goals, num_away_games]
-    #         end
-    #     end
-    #     return grouped_goals
-    # end
-
     def games_per_team
         team_count = Hash.new(0)
         @games.each do |game|
@@ -48,14 +27,6 @@ module LeagueStatable
         end
         sum
     end
-
-    # def games_per_team
-    #     team_count = Hash.new(0)
-    #     @games.each do |game|
-    #         team_count[game[1].away_team] += 1
-    #     end
-    #     binding.pry
-    # end
 
     def best_offense 
      team_goals = Hash.new { |hash, key| hash[key] = { total_goals: 0, games_played: 0}}
@@ -91,11 +62,26 @@ module LeagueStatable
         return (sum_of_team_scores_hoa(team_id, hoa).to_f / total_games_per_team_hoa(team_id, hoa).to_f).round(5)
     end
 
+    def highest_scoring_hoa(hoa)
+        highest = @teams.values.max_by do |team|
+            average_score_hoa(team.team_id, hoa)
+        end
+        return highest.name
+    end
+
     def lowest_scoring_hoa(hoa)
         lowest = @teams.values.min_by do |team|
             average_score_hoa(team.team_id, hoa)
         end
         return lowest.name
+    end
+
+    def highest_scoring_visitor
+        return highest_scoring_hoa("away")
+    end
+
+    def highest_scoring_home_team
+        return highest_scoring_hoa("home")
     end
 
     def lowest_scoring_visitor
@@ -106,8 +92,7 @@ module LeagueStatable
         return lowest_scoring_hoa("home")
     end
  
-
-  # Method to determine count of unique teams in a CSV file
+ 
 # Method to determine count of unique teams in a CSV file
     def count_of_teams
         team_ids = []
@@ -119,4 +104,5 @@ module LeagueStatable
         unique_team_count  # Return the count as an integer
     end
 end
+
 

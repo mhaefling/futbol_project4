@@ -116,11 +116,7 @@ RSpec.describe LeagueStatable do
 
     describe '#count_of_teams' do
         it 'returns the count of teams from the game_teams.csv file' do
-            game_teams_path = './data/game_teams.csv'
-
-            unique_team_count = LeagueStatable.count_of_teams(game_teams_path)
-
-            expect(unique_team_count).to be > 0 
+            expect(@stat_tracker.count_of_teams).to eq 32
         end
     end
 end

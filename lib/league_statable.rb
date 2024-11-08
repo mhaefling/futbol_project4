@@ -70,16 +70,14 @@ module LeagueStatable
  
 
   # Method to determine count of unique teams in a CSV file
-    def count_of_teams(game_teams_path)
+# Method to determine count of unique teams in a CSV file
+    def count_of_teams
         team_ids = []
-       
 
-    CSV.foreach(game_teams_path, headers: true) do |row|
-        team_ids << row['team_id']
+        @game_teams.each_value do |game_team|
+            team_ids << game_team.team_id
+        end
+        unique_team_count = team_ids.uniq.count
+        unique_team_count  # Return the count as an integer
     end
-    unique_team_count = team_ids.uniq.count
-# require 'pry' ; binding.pry
-    unique_team_count.to_i
-    end
-
 end

@@ -110,17 +110,17 @@ RSpec.describe LeagueStatable do
     # describe '#sort_away_teams' do
     #     it 'sorts games by away teams' do
     #         @stat_tracker.group_away_teams
-    #         # expect(@stat_tracker.sort_away_teams).to eq(Array)
+    #         expect(@stat_tracker.sort_away_teams).to eq(Array)
     #     end
     # end
 
-    # describe '#count_of_teams' do
-    #     it 'returns the count of teams from the game_teams.csv file' do
-    #         game_teams_path = './data/game_teams.csv'
+    describe '#count_of_teams' do
+        it 'returns the count of teams from the game_teams.csv file' do
+            game_teams_path = './data/game_teams.csv'
 
-    #         unique_team_count = LeagueStatable.count_of_teams(game_teams_path)
+            unique_team_count = LeagueStatable.count_of_teams(game_teams_path)
 
-    #         expect(unique_team_count).to be > 0 
-    #     end
-    # end
+            expect(unique_team_count).to be > 0 
+        end
+    end
 end

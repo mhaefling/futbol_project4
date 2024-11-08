@@ -16,13 +16,6 @@ RSpec.describe LeagueStatable do
         @stat_tracker.extend(GameStatable)
     end
 
-    # describe '#sort_away_teams' do
-    #     it 'sorts games by away teams' do
-    #         @stat_tracker.group_away_teams
-    #             expect(@stat_tracker.sort_away_teams).to eq(Array)
-    #     end
-    # end
-
     describe "best_offense" do
         it "tells which team has the most goals per game for all games" do
             expect(@stat_tracker.best_offense).to eq("Reign FC")
@@ -33,18 +26,6 @@ RSpec.describe LeagueStatable do
         it "tells which team has the least goals per game for all season" do
             expect(@stat_tracker.worst_offense).to eq("Utah Royals FC")
 
-    # describe '#total_games_per_team' do
-
-    # end
-
-    # describe '#average_score' do
-    #     it 'returns the average score based on hoa' do
-    #         team_data = "3"
-
-
-    #         expect(@stat_tracker.average_score(team_data)).to eq()
-    #     end
-    # end
 
     # Returns the total number of games a team played either home or away
     describe '#total_games_per_team_hoa' do
@@ -95,6 +76,16 @@ RSpec.describe LeagueStatable do
         end
     end
 
+    describe "#highest_scoring_hoa" do
+        it 'returns the away team with the highest average score' do
+            expect(@stat_tracker.highest_scoring_hoa("away")).to eq("FC Dallas")
+        end
+
+        it 'returns the home team with the lowest average score' do 
+            expect(@stat_tracker.highest_scoring_hoa("home")).to eq("Reign FC")
+        end
+    end
+
     describe "#lowest_scoring_hoa" do
         it 'returns the away team with the lowest average score' do
             expect(@stat_tracker.lowest_scoring_hoa("away")).to eq("San Jose Earthquakes")
@@ -102,6 +93,18 @@ RSpec.describe LeagueStatable do
 
         it 'returns the home team with the lowest average score' do 
             expect(@stat_tracker.lowest_scoring_hoa("home")).to eq("Utah Royals FC")
+        end
+    end
+
+    describe '#highest_scoring_visitor' do 
+        it "#highest_scoring_visitor" do
+            expect(@stat_tracker.highest_scoring_visitor).to eq "FC Dallas"
+        end
+    end
+
+    describe '#highest_scoring_home_team' do
+        it "#highest_scoring_home_team" do
+            expect(@stat_tracker.highest_scoring_home_team).to eq "Reign FC"
         end
     end
 
@@ -116,13 +119,7 @@ RSpec.describe LeagueStatable do
             expect(@stat_tracker.lowest_scoring_home_team).to eq("Utah Royals FC")
         end
     end
-    
-    # describe '#sort_away_teams' do
-    #     it 'sorts games by away teams' do
-    #         @stat_tracker.group_away_teams
-    #         expect(@stat_tracker.sort_away_teams).to eq(Array)
-    #     end
-    # end
+
 
     describe '#count_of_teams' do
         it 'returns the count of teams from the game_teams.csv file' do

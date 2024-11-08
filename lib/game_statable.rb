@@ -31,7 +31,6 @@ module GameStatable
     # concatenated to the end of the game_id
     # => Integer: 7441
     def total_game_count
-        # binding.pry
         @game_teams.count / 2
     end
 

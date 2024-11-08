@@ -105,4 +105,26 @@ module SeasonStatable
         team_id = worst_ratio(team_ratios(team_season_shot_goals(games_by_season(season))))
         return team_name_from_id(team_id)
     end
+
+  def winningest_coach(season)
+      season_games = games_by_season(season)
+      coach_wins = Hash.new(0)
+
+      season_games.each do |game_id|
+        game = @games[game_id]
+
+        coach_team = @game_teams.select { |game_team_id, game_team| game_team.game_id == game_id}
+
+        coach_team.each do |game_team_id, game_team|
+          if game_team.result == 'WIN'
+            coach_wins[game_team.head_coach] += 1
+          end
+        end
+      end
+
+      max_wins = coach_wins.values.max
+      coach_with_most_wins = coach_wins.key(max_wins)
+
+      return "#{coach_with_most_wins}"
+  end
 end

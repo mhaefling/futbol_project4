@@ -1,5 +1,31 @@
 module GameStatable
 
+    # Helper Method
+    ## Returns the sum of home and away teams' goals
+    def total_score(game_data)
+        return game_data.away_goals + game_data.home_goals
+    end
+
+    # Iterates through games hash looking for the game with the highest totals
+    # returned from inject game data into total_score helper method 
+    # and then returns the highest number of scores of a game
+    def highest_total_score
+        highest_total_score  = @games.max_by do |id, data|
+            total_score(data)
+        end
+        total_score(highest_total_score[1])
+    end    
+
+    # Iterates through games hash looking for the game with the lowest totals
+    # returned from inject game data into total_score helper method 
+    # and then returns the lowest number of scores of a game
+    def lowest_total_score
+        lowest_total_score  = @games.min_by do |id, data|
+            total_score(data)
+        end
+        total_score(lowest_total_score[1])
+    end 
+
     # Counts all of the keys in the game_teams hash and divides them by 2
     # Divides them by two because each game is entered twice with the team id 
     # concatenated to the end of the game_id
@@ -59,8 +85,15 @@ module GameStatable
         visitor_wins_percent.round(2)
     end
 
+     # Determines the percent of tie games by taking the result of the total_ties method (1517.0) and dividing it by the result
+    # of theh total_game_count method (7441) and then rounding the return value down to 2 decimal places.
+    def percentage_ties
+        ties_percent = total_ties / total_game_count
+        ties_percent.round(2)
 
-    # iterates over the gam
+    end
+    
+    # iterates over the game
     def count_of_games_by_season
         season_counts = {} 
         
@@ -70,13 +103,5 @@ module GameStatable
             season_counts[season] = season_counts.fetch(season, 0) + 1
         end
         season_counts
-    end
-
-    # Determines the percent of tie games by taking the result of the total_ties method (1517.0) and dividing it by the result
-    # of theh total_game_count method (7441) and then rounding the return value down to 2 decimal places.
-    def percentage_ties
-        ties_percent = total_ties / total_game_count
-        ties_percent.round(2)
-
     end
 end

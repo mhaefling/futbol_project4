@@ -19,9 +19,19 @@ RSpec.describe LeagueStatable do
     # describe '#sort_away_teams' do
     #     it 'sorts games by away teams' do
     #         @stat_tracker.group_away_teams
-    #         expect(@stat_tracker.sort_away_teams).to eq(Array)
+    #             expect(@stat_tracker.sort_away_teams).to eq(Array)
     #     end
     # end
+
+    describe "best_offense" do
+        it "tells which team has the most goals per game for all games" do
+            expect(@stat_tracker.best_offense).to eq("Reign FC")
+        end
+    end
+
+    describe "worst_offense" do
+        it "tells which team has the least goals per game for all season" do
+            expect(@stat_tracker.worst_offense).to eq("Utah Royals FC")
 
     # describe '#total_games_per_team' do
 
@@ -117,6 +127,7 @@ RSpec.describe LeagueStatable do
     describe '#count_of_teams' do
         it 'returns the count of teams from the game_teams.csv file' do
             expect(@stat_tracker.count_of_teams).to eq 32
+
         end
     end
 end

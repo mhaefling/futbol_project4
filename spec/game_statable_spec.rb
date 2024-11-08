@@ -15,6 +15,27 @@ RSpec.describe GameStatable do
         @stat_tracker = StatTracker.from_csv(locations)
         @stat_tracker.extend(GameStatable)
     end
+
+    describe '#total_score' do
+        it 'returns the sum score of winning and lossing teams' do
+            game_data = @stat_tracker.games["2012030221"]
+
+            expect(@stat_tracker.total_score(game_data)).to eq(5)
+        end
+    end
+
+    describe "#highest_total_score" do
+        it 'returns highest total score of teams' do
+            expect(@stat_tracker.highest_total_score).to eq(11)
+        end
+    end
+
+    describe "#lowest_total_score" do
+        it 'returns the lowest total score of teams' do
+            expect(@stat_tracker.lowest_total_score).to eq(0)
+        end
+    end
+
     describe '#total_game_count' do
         it 'returns the total amount of games' do
 
@@ -59,14 +80,16 @@ RSpec.describe GameStatable do
 
 
     describe '#count_of_games_by_season' do
-    expected = {
-        "20122013"=>806,
-        "20162017"=>1317,
-        "20142015"=>1319,
-        "20152016"=>1321,
-        "20132014"=>1323,
-        "20172018"=>1355
-      }
+        expected = {
+            "20122013"=>806,
+            "20162017"=>1317,
+            "20142015"=>1319,
+            "20152016"=>1321,
+            "20132014"=>1323,
+            "20172018"=>1355
+        }
+
+    end
 
     describe '#percentage_ties' do
         it 'calculates the percentage of tie games' do

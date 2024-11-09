@@ -88,12 +88,45 @@ end
             expect(@stat_tracker.least_accurate_team("20142015")).to eq "Columbus Crew SC"
         end
     end
+
+
+    describe "winnigest_coach" do
+        it "returns the head_coach with the most wins per that season" do
+            expect(@stat_tracker.winningest_coach("20132014")).to eq ("Claude Julien")
+            expect(@stat_tracker.winningest_coach("20142015")).to eq ("Alain Vigneault")
+        
+        end
+    end
+
+    describe "worst_coach" do
+        it "returns the head coach with the most losses per season" do
+        expect(@stat_tracker.worst_coach("20132014")).to eq ("Peter Laviolette")
+        expect(@stat_tracker.worst_coach("20142015")).to eq("Craig MacTavish").or(eq("Ted Nolan"))
+        end
+    end
+
+    describe "coach_wins_in_season" do
+        it "returns number of wins for a coach in a season" do
+            season_games = @stat_tracker.games_by_season("20132014")
+            coach_wins = Hash.new(0)
+            total_coach_game = Hash.new(0)
+            expect(@stat_tracker.coach_wins_in_season(season_games, coach_wins, total_coach_game)).to be_an(Array)
+            expect(@stat_tracker.coach_wins_in_season(season_games, coach_wins, total_coach_game).size).to eq(1323)
+            expect(@stat_tracker.coach_wins_in_season(season_games, coach_wins, total_coach_game).sample).to be_a(String)
+            expect(@stat_tracker.coach_wins_in_season(season_games, coach_wins, total_coach_game).sample.length).to eq(10)
+        end
+    end
+
+    describe "coach_win_percentage_calculator" do
+        it "calculates the win percentage a coach has and puts the in an array" do
+            season_games = @stat_tracker.games_by_season("20132014")
+            coach_wins = Hash.new(0)
+            total_coach_game = Hash.new(0)
+            @stat_tracker.coach_wins_in_season(season_games, coach_wins, total_coach_game)
+            expect(@stat_tracker.coach_win_percentage_calculator(coach_wins, total_coach_game)).to be_a(Hash)
+            expect(@stat_tracker.coach_win_percentage_calculator(coach_wins, total_coach_game).size).to eq(34)
+            expect(@stat_tracker.coach_win_percentage_calculator(coach_wins, total_coach_game).keys.sample).to be_a(String)
+            expect(@stat_tracker.coach_win_percentage_calculator(coach_wins, total_coach_game).values.sample).to be_a(Float)
+        end
+    end
 end
-
-    # describe '#worst_coach' do
-    #     it 'can return the worst coach in the season' do
-
-
-    #         expect(@stat_tracker.worst_coach).to eq("The coach with the least wins for the 20122013 season is John Tortorella with 0 wins")
-    #     end
-    # end

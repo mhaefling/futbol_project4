@@ -24,15 +24,15 @@ Our code design approach was mostly encapsulated into our project design, althou
 
 ## Contributors
 ### Elysa Ward
-> [LinkedIn Profile](www.linkedin.com/in/elysa-ward-a54449212)
+> [LinkedIn Profile](https://www.linkedin.com/in/elysa-ward-a54449212/)
 > <br>
 > [GitHub Profile](https://github.com/elysableu)
 ### Matt Haefling
-> [LinkedIn Profile](www.linkedin.com/in/matthew-haefling-9ba735a6)
+> [LinkedIn Profile](https://www.linkedin.com/in/matthew-haefling-9ba735a6/)
 > <br>
 > [GitHub Profile](https://github.com/mhaefling)
 ### Jackson Bickler
-> [LinkedIn Profile](www.linkedin.com/in/jackson-bickler)
+> [LinkedIn Profile](https://www.linkedin.com/in/jackson-bickler/)
 > <br>
 > [GitHub Profile](https://github.com/JacksonBick)
 ### Shadeau Christensen

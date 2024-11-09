@@ -25,6 +25,7 @@ RSpec.describe LeagueStatable do
     describe "worst_offense" do
         it "tells which team has the least goals per game for all season" do
             expect(@stat_tracker.worst_offense).to eq("Utah Royals FC")
+        end
 
 
     # Returns the total number of games a team played either home or away
@@ -127,4 +128,5 @@ RSpec.describe LeagueStatable do
 
         end
     end
+end
 end

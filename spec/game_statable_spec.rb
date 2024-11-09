@@ -16,7 +16,7 @@ RSpec.describe GameStatable do
         @stat_tracker.extend(GameStatable)
     end
 
-    describe '#total_score' do
+    describe "#total_score" do
         it 'returns the sum score of winning and lossing teams' do
             game_data = @stat_tracker.games["2012030221"]
 
@@ -36,28 +36,28 @@ RSpec.describe GameStatable do
         end
     end
 
-    describe '#total_game_count' do
+    describe "#total_game_count" do
         it 'returns the total amount of games' do
 
             expect(@stat_tracker.total_game_count).to eq(7441.0)
         end
     end
 
-    describe '#total_home_wins' do
+    describe "#total_home_wins" do
         it 'returns the total home game wins' do
 
             expect(@stat_tracker.total_home_wins).to eq(3237.0)
         end
     end
 
-    describe '#total_visitor_wins' do
+    describe "#total_visitor_wins" do
         it 'returns the total away game wins' do
 
             expect(@stat_tracker.total_visitor_wins).to eq(2687.0)
         end
     end
 
-    describe '#total_ties' do
+    describe "#total_ties" do
         it 'returns the total amount of tie games' do
 
             expect(@stat_tracker.total_ties).to eq(1517.0)
@@ -71,15 +71,21 @@ RSpec.describe GameStatable do
         end
     end
 
-    describe '#percentage_visitor_wins' do
+    describe "#percentage_visitor_wins" do
         it 'calculates the percentage of away wins' do
 
             expect(@stat_tracker.percentage_visitor_wins).to eq(0.36)
         end
     end
 
+    describe "#percentage_ties" do
+        it 'calculates the percentage of tie games' do
 
-    describe '#count_of_games_by_season' do
+            expect(@stat_tracker.percentage_ties).to eq(0.20)
+        end
+    end
+
+    describe "#count_of_games_by_season" do
         expected = {
             "20122013"=>806,
             "20162017"=>1317,
@@ -91,12 +97,18 @@ RSpec.describe GameStatable do
 
     end
 
-    describe '#percentage_ties' do
-        it 'calculates the percentage of tie games' do
+    describe "#total_goal" do
+        it 'provides the total amount of goals from all games and seasons' do
 
-            expect(@stat_tracker.percentage_ties).to eq(0.20)
+            expect(@stat_tracker.total_goals).to eq(31413)
+        end 
+    end
+
+    describe "#average_goals_per_game" do
+        it 'Average number of goals scored in a game across all seasons including both home and away goals' do
+
+            expect(@stat_tracker.average_goals_per_game).to eq(4.22)
         end
-
     end
 
     describe '#average_goals_per_game' do

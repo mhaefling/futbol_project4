@@ -26,7 +26,6 @@ class StatTracker
         stat_tracker.load_teams_data(locations[:teams])
         stat_tracker.load_games_data(locations[:games])
         stat_tracker.load_game_teams_data(locations[:game_teams])
-        # binding.pry
         return stat_tracker
     end
 

@@ -5,7 +5,6 @@ module LeagueStatable
         @games.each do |game|
             team_count[game[1].away_team] += 1
         end
-        binding.pry
     end
 
 

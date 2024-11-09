@@ -107,24 +107,48 @@ module SeasonStatable
     end
 
   def winningest_coach(season)
-      season_games = games_by_season(season)
-      coach_wins = Hash.new(0)
+    season_games = games_by_season(season)
+    coach_wins = Hash.new(0)
+    total_coach_game = Hash.new(0)
+    coach_wins_in_season(season_games, coach_wins, total_coach_game)
+    coach_win_percentages = coach_win_percentage_calculator(coach_wins, total_coach_game)
+    coach_win_percentages.max_by { |coach, win_percentage| win_percentage}.first
+  end
 
-      season_games.each do |game_id|
-        game = @games[game_id]
+  def worst_coach(season)
+    season_games = games_by_season(season)
+    coach_wins = Hash.new(0)
+    total_coach_game = Hash.new(0)
+    coach_wins_in_season(season_games, coach_wins, total_coach_game)
+    coach_win_percentages = coach_win_percentage_calculator(coach_wins, total_coach_game)
+    coach_win_percentages.min_by { |coach, win_percentage| win_percentage}.first
+  end
 
-        coach_team = @game_teams.select { |game_team_id, game_team| game_team.game_id == game_id}
+  def coach_wins_in_season(season_games, coach_wins, total_coach_game)
 
-        coach_team.each do |game_team_id, game_team|
-          if game_team.result == 'WIN'
-            coach_wins[game_team.head_coach] += 1
-          end
+    season_games.each do |game_id|
+
+      coach_team = @game_teams.select { |game_team_id, game_team| game_team.game_id == game_id}
+
+      coach_team.each do |game_team_id, game_team|
+        total_coach_game[game_team.head_coach] += 1
+        
+        if game_team.result == 'WIN'
+          coach_wins[game_team.head_coach] += 1
+        else
+          coach_wins[game_team.head_coach] += 0
         end
       end
+      
+    end
 
-      max_wins = coach_wins.values.max
-      coach_with_most_wins = coach_wins.key(max_wins)
+  end
 
-      return "#{coach_with_most_wins}"
+  def coach_win_percentage_calculator(coach_wins, total_coach_game)
+    coach_wins.map do |coach, wins|
+      total_games = total_coach_game[coach]
+      win_percentage = (wins.to_f / total_games) * 100
+      [coach, win_percentage]
+    end.to_h
   end
 end

@@ -103,4 +103,18 @@ module GameStatable
         end
         season_counts
     end
+
+    #  Iterates over the games.csv file to confirm the total amount of goals from all games and seasons.
+    def total_goals
+        total_goals = 0
+        @games.each do |game|
+            total_goals += game[1].away_goals + game[1].home_goals
+        end
+        total_goals
+    end
+    # provides the average goals scored in a game across all seasons.
+    def average_goals_per_game
+        average_goals = total_goals.to_f / total_game_count.to_f
+        average_goals.round(2)
+    end
 end
